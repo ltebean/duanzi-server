@@ -39,7 +39,7 @@ app.get('/duanzi/category/:categoryName/:page', function(req,res){
 		function findResult(err,collection){
 			if (err) throw err;
 			collection.find({
-				"categoryName":req.params.categoryName
+				"category":req.params.categoryName
 			}).sort({"_id":1}).skip(req.params.page*10).limit(10).toArray(this);;
 		},
 		function generateResponse(err, result){
@@ -50,6 +50,6 @@ app.get('/duanzi/category/:categoryName/:page', function(req,res){
 
 
 var server=http.createServer(app);
-var port = 1998;
+var port = 9999;
 server.listen(port); 
 console.log("server listening on port "+port);
