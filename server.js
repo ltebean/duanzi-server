@@ -23,7 +23,7 @@ app.get('/duanzi/page/:page', function(req,res){
 		},
 		function findResult(err,collection){
 			if (err) throw err;
-			collection.find({}).sort({"_id":1}).skip(req.params.page*10).limit(10).toArray(this);;
+			collection.find({}).sort({"_id":-1}).skip(req.params.page*10).limit(10).toArray(this);;
 		},
 		function generateResponse(err, result){
 			if (err) throw err;
