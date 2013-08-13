@@ -40,7 +40,7 @@ app.get('/duanzi/category/:categoryName/:page', function(req,res){
 			if (err) throw err;
 			collection.find({
 				"category":req.params.categoryName
-			}).sort({"_id":1}).skip(req.params.page*10).limit(10).toArray(this);;
+			}).sort({"_id":-1}).skip(req.params.page*10).limit(10).toArray(this);;
 		},
 		function generateResponse(err, result){
 			if (err) throw err;
